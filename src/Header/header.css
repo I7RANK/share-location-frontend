@@ -1,0 +1,131 @@
+header {
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+}
+
+header span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* =========== NAVBAR =========== */
+.content-menu {
+    width: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-menu {
+    background: var(--primary-color);
+    width: 16px;
+    height: 2px;
+    display: block;
+    transition: background-color .3s ease;
+}
+
+.label-btn {
+    position: absolute;
+    height: 18px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.icon-menu::after,
+.icon-menu::before {
+    background: var(--primary-color);
+    content: "";
+    width: 20px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    margin-left: -2px;
+    transition: transform .3s ease, margin .3s ease;
+}
+
+.icon-menu::after {
+    margin-top: -6px;
+}
+
+.icon-menu::before {
+    margin-top: 6px;
+}
+
+.main-navbar {
+    transform: scale(0);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100vw;
+    overflow: hidden;
+    transition: transform .3s ease;
+}
+
+.main-navbar ul {
+    padding: 0;
+    margin: 0;
+}
+
+.main-navbar ul li {
+    list-style: none;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.main-navbar ul li:hover {
+    background: var(--bg-secondary);
+    color: var(--primary-color);
+}
+
+#navbar-control {
+    display: none;
+}
+
+#navbar-control:checked+.icon-menu {
+    background: transparent;
+}
+
+#navbar-control:checked+.icon-menu::after,
+#navbar-control:checked+.icon-menu::before {
+    margin: 0;
+    margin-left: -2px;
+}
+
+#navbar-control:checked+.icon-menu::after {
+    transform: rotate(45deg);
+}
+
+#navbar-control:checked+.icon-menu::before {
+    transform: rotate(-45deg);
+}
+
+#navbar-control:checked~.main-navbar {
+    transform: scale(1);
+}
+
+#navbar-control:checked~.main-navbar ul {
+    animation: main-navbar_show-in .3s ease;
+}
+
+#navbar-control:not(:checked)~.main-navbar ul {
+    animation: main-navbar_show-out .3s ease-in;
+}
+
+@keyframes main-navbar_show-in {
+    from {transform: translate(100%);}
+    to {transform: translate(0%);}
+}
+
+@keyframes main-navbar_show-out {
+    from {transform: translate(0%);}
+    to {transform: translate(-100%);}
+}
