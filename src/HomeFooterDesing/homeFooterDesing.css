@@ -1,0 +1,26 @@
+.content_footer-design {
+    position: absolute;
+    bottom: 0;
+    height: 50vh;
+    width: 100vw;
+    overflow: hidden;
+    user-select: none;
+}
+
+.content_footer-design svg {
+    position: absolute;
+}
+
+.polygon1_left-bottom {
+    left: -50px;
+    bottom: -70px;
+}
+
+.polygon2_right-top {
+    right: -105px;
+}
+
+.polygon3_right-bottom {
+    right: -45px;
+    bottom: -120px;
+}

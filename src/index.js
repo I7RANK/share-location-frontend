@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Header from './Header/header';
+import HomeFooterDesing from './HomeFooterDesing/homeFooterDesing';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
+    <HomeFooterDesing />
   </React.StrictMode>,
   document.getElementById('root')
 );
