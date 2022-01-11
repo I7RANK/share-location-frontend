@@ -29,10 +29,20 @@
 }
 
 .content_home-center-button .txt-btn_emit {
-	color: #000;
+    height: 180px;
+    width: 180px;
+    color: #000;
     font-weight: bold;
     font-size: 18px;
     top: 50%;
+    transform: translate(0, -42%);
+}
+
+.content_home-center-button .txt-btn_emit:hover~.polygon_btn-center-front {
+    transform: translate(-45%, -50%) rotate(35deg);
+}
+.content_home-center-button .txt-btn_emit:hover~.polygon_btn-center-back {
+    transform: rotate(2deg) scale(1.1);
 }
 
 .content_home-center-button .txt-btn_follow_up {
@@ -46,6 +56,7 @@
 
 .content_home-center-button svg {
     position: absolute;
+    transition: transform .3s ease;
 }
 
 .polygon_btn-center-front {
