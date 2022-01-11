@@ -5,6 +5,7 @@
     width: 100vw;
     overflow: hidden;
     user-select: none;
+    z-index: -1;
 }
 
 .content_footer-design svg {
