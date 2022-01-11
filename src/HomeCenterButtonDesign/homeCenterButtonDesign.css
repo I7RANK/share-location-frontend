@@ -36,8 +36,12 @@
     font-size: 18px;
     top: 50%;
     transform: translate(0, -42%);
+    transition: text-shadow .3s ease;
 }
 
+.content_home-center-button .txt-btn_emit:hover {
+    text-shadow: 0 0 30px #000;
+}
 .content_home-center-button .txt-btn_emit:hover~.polygon_btn-center-front {
     transform: translate(-45%, -50%) rotate(35deg);
 }
