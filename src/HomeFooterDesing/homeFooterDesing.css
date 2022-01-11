@@ -12,17 +12,17 @@
     position: absolute;
 }
 
-.polygon1_left-bottom {
+.polygon_left-bottom {
     left: -50px;
     bottom: -70px;
 }
 
-.polygon2_right-top {
+.polygon_right-top {
     top: 80px;
     right: -105px;
 }
 
-.polygon3_right-bottom {
+.polygon_right-bottom {
     right: -45px;
     bottom: -120px;
 }

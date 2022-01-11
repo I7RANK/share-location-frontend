@@ -3,7 +3,7 @@ import './homeFooterDesing.css';
 function HomeFooterDesing() {
     return (
         <div className='content_footer-design'>
-            <svg className='polygon1_left-bottom' width="202" height="226" viewBox="0 0 202 226" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='polygon_left-bottom' width="202" height="226" viewBox="0 0 202 226" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_d_19_5)">
                     <path d="M12.9135 77.5628C6.33127 63.0445 14.2439 46.0758 29.5965 41.786L138.141 11.4564C159.537 5.47797 178.091 27.3514 168.702 47.4853L106.695 180.46C97.3061 200.594 68.624 200.441 59.4508 180.208L12.9135 77.5628Z" fill="url(#paint0_linear_19_5)" />
                 </g>
@@ -26,7 +26,7 @@ function HomeFooterDesing() {
             </svg>
 
 
-            <svg className='polygon2_right-top' width="176" height="167" viewBox="0 0 176 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='polygon_right-top' width="176" height="167" viewBox="0 0 176 167" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_d_19_14)">
                     <path d="M59.3676 22.7923C70.2217 5.97624 95.2095 7.2162 104.346 25.0242L142.295 98.996C151.431 116.804 137.864 137.824 117.873 136.832L34.8371 132.712C14.8469 131.72 3.42681 109.46 14.281 92.6436L59.3676 22.7923Z" fill="url(#paint0_linear_19_14)" />
                 </g>
@@ -48,7 +48,7 @@ function HomeFooterDesing() {
                 </defs>
             </svg>
 
-            <svg className='polygon3_right-bottom' width="212" height="204" viewBox="0 0 212 204" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='polygon_right-bottom' width="212" height="204" viewBox="0 0 212 204" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_d_19_17)">
                     <path d="M21.562 34.4085C23.1245 18.6483 38.2947 7.93421 53.6701 11.7321L161.914 38.4695C183.54 43.8113 188.874 72.0979 170.679 84.9484L51.4345 169.165C33.2392 182.015 8.36474 167.529 10.5623 145.362L21.562 34.4085Z" fill="url(#paint0_linear_19_17)" />
                 </g>
