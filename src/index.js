@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Header from './Header/header';
 import HomeFooterDesing from './HomeFooterDesing/homeFooterDesing';
+import HomeCenterButtonDesign from './HomeCenterButtonDesign/homeCenterButtonDesign';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
+    <HomeCenterButtonDesign />
     <HomeFooterDesing />
   </React.StrictMode>,
   document.getElementById('root')
