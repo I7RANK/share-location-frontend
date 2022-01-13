@@ -5,12 +5,18 @@ import Header from './Header/header';
 import HomeFooterDesing from './HomeFooterDesing/homeFooterDesing';
 import HomeCenterButtonDesign from './HomeCenterButtonDesign/homeCenterButtonDesign';
 import reportWebVitals from './reportWebVitals';
+import Test from './routes/test';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
-    <HomeCenterButtonDesign />
-    <HomeFooterDesing />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<><Header /><HomeCenterButtonDesign /><HomeFooterDesing /></>} />
+        <Route path='/test' element={<Test />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
