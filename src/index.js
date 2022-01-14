@@ -9,6 +9,8 @@ import Test from './routes/test';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { io } from "socket.io-client";
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -25,3 +27,10 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+const socket = io("http://localhost:3001");
+
+socket.on("connect", () => {
+  console.log("I'm connected");
+  console.log(socket.id);
+});
