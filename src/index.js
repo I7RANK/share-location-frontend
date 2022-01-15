@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Header from './Header/header';
-import HomeFooterDesing from './HomeFooterDesing/homeFooterDesing';
-import HomeCenterButtonDesign from './HomeCenterButtonDesign/homeCenterButtonDesign';
+import Home from './pages/Home/home';
+import HomeFooterDesing from './pages/Home/HomeFooterDesing/homeFooterDesing';
+import HomeCenterButtonDesign from './pages/Home/HomeCenterButtonDesign/homeCenterButtonDesign';
 import reportWebVitals from './reportWebVitals';
-import Test from './routes/test';
+import Test from './pages/test';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -13,8 +13,15 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<><Header /><HomeCenterButtonDesign /><HomeFooterDesing /></>} />
-        <Route path='/test' element={<Test />} />
+        <Route path='/' element={<Home />}>
+          <Route path='/' element={
+            <>
+              <HomeCenterButtonDesign />
+              <HomeFooterDesing />
+            </>
+          } />
+          <Route path='/test' element={<Test />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
