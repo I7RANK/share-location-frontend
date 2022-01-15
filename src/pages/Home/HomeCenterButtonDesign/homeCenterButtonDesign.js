@@ -1,5 +1,5 @@
 import './homeCenterButtonDesign.css';
-import socketConnection from '../utils/socket-io/socketConnection';
+import socketConnection from './../../../utils/socket-io/socketConnection';
 
 function HomeCenterButtonDesign() {
     return (
