@@ -7,6 +7,8 @@ import HomeCenterButtonDesign from './pages/Home/HomeCenterButtonDesign/homeCent
 import reportWebVitals from './reportWebVitals';
 import Test from './pages/test';
 
+import Map from './pages/GoogleMaps/map';
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
@@ -21,6 +23,7 @@ ReactDOM.render(
             </>
           } />
           <Route path='/test' element={<Test />} />
+          <Route path='/map' element={<Map />} />
         </Route>
       </Routes>
     </BrowserRouter>
