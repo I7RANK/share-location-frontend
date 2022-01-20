@@ -18,11 +18,17 @@ function socketConnection(type = 'sender', url = 'http://localhost:3001') {
       console.log('new private message');
       console.log(messageObj);
     });
+
+    startTrackingPosition(socket);
   });
 
+  return socket;
+}
+
+function startTrackingPosition(socket) {
   if (navigator.geolocation) {
     // watch for user movement
-    navigator.geolocation.watchPosition(function(position) {
+    navigator.geolocation.watchPosition(function (position) {
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
 
@@ -37,8 +43,6 @@ function socketConnection(type = 'sender', url = 'http://localhost:3001') {
   } else {
     alert("Geolocation is not supported by this browser.");
   }
-
-  return socket;
 }
 
 export default socketConnection;
