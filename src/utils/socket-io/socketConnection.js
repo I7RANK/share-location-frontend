@@ -1,12 +1,23 @@
 import { io } from "socket.io-client";
 
-
-function socketConnection(url = 'http://localhost:3001') {
+// type = sender || receiver
+function socketConnection(type = 'sender', url = 'http://localhost:3001') {
   const socket = io(url);
 
   socket.on("connect", () => {
-    console.log("I'm connected");
-    console.log(socket.id);
+    console.log("I'm connected:", socket.id);
+
+    const obj = {
+      socketId: socket.id,
+      type
+    }
+
+    socket.emit('lobby', obj);
+
+    socket.on('private message', (messageObj) => {
+      console.log('new private message');
+      console.log(messageObj);
+    });
   });
 
   if (navigator.geolocation) {
