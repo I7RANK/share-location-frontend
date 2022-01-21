@@ -1,5 +1,6 @@
 import React from 'react'
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import CustomMarker from './customMarker';
 
 const containerStyle = {
   width: '100vw',
@@ -42,9 +43,7 @@ function MyComponent() {
       >
         { /* Child components, such as markers, info windows, etc. */ }
         <>
-          <Marker
-          position={center}
-          />
+          <CustomMarker />
         </>
       </GoogleMap>
   ) : <></>
