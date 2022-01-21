@@ -20,26 +20,29 @@ function socketConnection(type = 'sender', roomId, url = 'http://localhost:3001'
       console.log(messageObj);
     });
 
-    startTrackingPosition(socket);
+    socket.on('roomId', (clientObj) => {
+      console.log(`http://localhost:3000/map/?roomId=${clientObj.roomId}`);
+      startTrackingPosition(socket, clientObj);
+    });
+
   });
 
   return socket;
 }
 
-function startTrackingPosition(socket) {
+function startTrackingPosition(socket, clientObj) {
   if (navigator.geolocation) {
     // watch for user movement
     navigator.geolocation.watchPosition(function (position) {
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
 
-      const obj = {
-        socketId: socket.id,
-        lat,
-        lng
-      };
+      const obj = {...clientObj};
 
-      socket.emit('test-location', obj);
+      obj['lat'] = lat;
+      obj['lng'] = lng;
+
+      socket.emit('toRoadsAPI', obj);
     });
   } else {
     alert("Geolocation is not supported by this browser.");
