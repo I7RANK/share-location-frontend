@@ -7,7 +7,7 @@ function HomeCenterButtonDesign() {
     return (
         <div className='content_home-center-button'>
             <div>
-                <Link to={'/map'} className='txt-btn_emit' onClick={() => { socketConnection() }}>
+                <Link to={'/map'} className='txt-btn_emit'>
                     Emit
                 </Link>
                 <button className='txt-btn_follow_up'>Follow up</button>

@@ -1,10 +1,15 @@
 import getRoomIdFromQueryParameters from "./getRoomIdFromQueryParameters";
+import socketConnection from "./socket-io/socketConnection";
 
 function identifyUserType() {
-    if (getRoomIdFromQueryParameters() === null) {
+    const roomId = getRoomIdFromQueryParameters();
+
+    if (roomId === null) {
         console.log('sender');
+        socketConnection('sender');
     } else {
         console.log('receiver');
+        socketConnection('receiver', roomId);
     }
 }
 
