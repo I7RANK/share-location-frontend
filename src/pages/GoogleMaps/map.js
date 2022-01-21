@@ -2,6 +2,8 @@ import React from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import CustomMarker from './customMarker';
 
+import identifyUserType from '../../utils/identifyUserType';
+
 const containerStyle = {
   width: '100vw',
   height: 'calc(100vh - 55px)'
@@ -26,7 +28,9 @@ function MyComponent() {
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds();
     map.fitBounds(bounds);
-    setMap(map)
+    setMap(map);
+
+    identifyUserType();
   }, [])
 
   const onUnmount = React.useCallback(function callback(map) {
