@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Marker } from "@react-google-maps/api";
 
 
-function CustomMarker() {
-  const [location, setLocation] = useState([10, -11]);
+function CustomMarker({position={
+    lat: 10.9797595,
+    lng: -74.7960913
+  }, socketInstance}) {
+  const [location, setLocation] = useState([position]);
 
   function getRandomArbitrary(min = -11, max = 11) {
     return Math.random() * (max - min) + min;
@@ -12,7 +15,7 @@ function CustomMarker() {
   return (
     <>
       <Marker
-        position={{lat: location[0], lng: location[1]}}
+        position={{lat: location[0].lat, lng: location[0].lng}}
         onClick={() => setLocation([getRandomArbitrary(), getRandomArbitrary()])} />
     </>
   );
