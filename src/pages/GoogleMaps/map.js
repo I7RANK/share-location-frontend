@@ -10,11 +10,11 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 10.931408980305731,
-  lng: -74.82416437847748
+  lat: 10.9797595,
+  lng: -74.7960913
 };
 
-const zoom = 18;
+const zoom = 13;
 
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
@@ -23,18 +23,15 @@ function MyComponent() {
   })
 
   // eslint-disable-next-line no-unused-vars
-  const [map, setMap] = React.useState(null)
+  const [mapInstance, setMapInstance] = React.useState(null)
 
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map);
-
+  const onLoad = React.useCallback(function callback(mapInstance) {
+    setMapInstance(mapInstance);
     identifyUserType();
   }, [])
 
   const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
+    setMapInstance(null)
   }, [])
 
   return isLoaded ? (
