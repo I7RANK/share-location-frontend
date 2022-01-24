@@ -6,10 +6,10 @@ function identifyUserType() {
 
     if (roomId === null) {
         console.log('sender');
-        socketConnection('sender');
+        return socketConnection('sender');
     } else {
         console.log('receiver');
-        socketConnection('receiver', roomId);
+        return socketConnection('receiver', roomId);
     }
 }
 
