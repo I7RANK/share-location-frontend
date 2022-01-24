@@ -24,11 +24,6 @@ function socketConnection(type = 'sender', roomId, url = 'http://localhost:3001'
       console.log(`http://localhost:3000/map/?roomId=${clientObj.roomId}`);
       startTrackingPosition(socket, clientObj);
     });
-
-    socket.on('fromRoadsAPI', (clientObj) => {
-      console.log('new roadsAPI location');
-      console.log(clientObj);
-    });
   });
 
   return socket;
