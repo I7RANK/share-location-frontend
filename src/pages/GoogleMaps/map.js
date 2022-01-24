@@ -20,15 +20,16 @@ function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyDePPdWErHwr3klW_CxPvpMuB_OX7vMKtA"
-  })
+  });
 
   // eslint-disable-next-line no-unused-vars
-  const [mapInstance, setMapInstance] = React.useState(null)
+  const [mapInstance, setMapInstance] = React.useState(null);
+  const [socketInstance, setSocketInstance] = React.useState(null);
 
   const onLoad = React.useCallback(function callback(mapInstance) {
     setMapInstance(mapInstance);
-    identifyUserType();
-  }, [])
+    setSocketInstance(identifyUserType());
+  }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
     setMapInstance(null)
@@ -44,7 +45,7 @@ function MyComponent() {
       >
         { /* Child components, such as markers, info windows, etc. */ }
         <>
-          <CustomMarker />
+          {socketInstance ? <CustomMarker socketInstance={socketInstance}/>: <></>}
         </>
       </GoogleMap>
   ) : <></>
