@@ -9,14 +9,6 @@ function BSModal({ linkToShare, showModal = false }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  function copyToClipboard() {
-    const copyText = document.getElementById("link-to-share");
-    const btn = document.getElementById("btn-copy-to-clipboard");
-
-    navigator.clipboard.writeText(copyText.textContent);
-    btn.textContent = 'Copied!';
-  }
-
   function shareModal(url = linkToShare) {
     if (navigator.share) {
       navigator.share({
