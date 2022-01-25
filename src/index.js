@@ -22,7 +22,6 @@ ReactDOM.render(
               <HomeFooterDesing />
             </>
           } />
-          <Route path='/test' element={<Test />} />
           <Route path='/map' element={<Map />} />
         </Route>
       </Routes>

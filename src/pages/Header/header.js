@@ -1,11 +1,10 @@
 import './header.css'
-import { Link } from 'react-router-dom';
 
 function Header() {
     return (
         <header>
             <span>ShareLocation</span>
-            <Link to='/test'>test</Link>
+
             <div className='content-menu'>
                 <input id='navbar-control' type={'checkbox'}></input>
                 <label className='icon-menu' htmlFor='navbar-control'></label>
