@@ -1,5 +1,6 @@
 function getRoomIdFromQueryParameters() {
-    const url = new URL(window.location.href);
+    // replace because of the react routes
+    const url = new URL(window.location.href.replace('#/map', 'map'));
 
     return url.searchParams.get('roomId');
 }
