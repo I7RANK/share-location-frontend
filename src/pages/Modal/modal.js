@@ -3,7 +3,7 @@ import imgLink from './link.png';
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
-function BSModal({ linkToShare, showModal = true }) {
+function BSModal({ linkToShare, showModal = false }) {
   const [show, setShow] = useState(showModal);
 
   const handleClose = () => setShow(false);
@@ -15,6 +15,18 @@ function BSModal({ linkToShare, showModal = true }) {
 
     navigator.clipboard.writeText(copyText.textContent);
     btn.textContent = 'Copied!';
+  }
+
+  function shareModal(url = linkToShare) {
+    if (navigator.share) {
+      navigator.share({
+        title: document.title,
+        text: "Share this link so they can follow you",
+        url: url
+      })
+      .then(() => console.log('Successful share'))
+      .catch(error => console.log('Error sharing:', error));
+    }
   }
 
   return (
@@ -29,8 +41,8 @@ function BSModal({ linkToShare, showModal = true }) {
         </Modal.Header>
         <Modal.Body><code id="link-to-share">{linkToShare}</code></Modal.Body>
         <Modal.Footer>
-          <Button id="btn-copy-to-clipboard" variant="primary" onClick={copyToClipboard}>
-            copy
+          <Button id="btn-copy-to-clipboard" variant="primary" onClick={() => {shareModal(); handleClose();}}>
+            Share link
           </Button>
         </Modal.Footer>
       </Modal>

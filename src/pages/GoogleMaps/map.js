@@ -42,8 +42,20 @@ function MyComponent() {
     socket.on('roomId', (clientObj) => {
       const localUrl = window.location.href;
 
-      setLinkToShare(`${localUrl}?roomId=${clientObj.roomId}`);
+      const trackingLink = `${localUrl}?roomId=${clientObj.roomId}`;
+
+      setLinkToShare(trackingLink);
       startTrackingPosition(socket, clientObj);
+
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          text: "Share this link so they can follow you",
+          url: trackingLink
+        })
+        .then(() => console.log('Successful share'))
+        .catch(error => console.log('Error sharing:', error));
+      }
     });
   }, []);
 
@@ -69,7 +81,7 @@ function MyComponent() {
       {linkToShare && userType ?
         <BSModal
           linkToShare={linkToShare}
-          showModal={userType === 'sender'} />
+          /* showModal={userType === 'sender'} */ />
       :
         <></>}
     </>
