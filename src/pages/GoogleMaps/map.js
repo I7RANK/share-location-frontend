@@ -66,7 +66,12 @@ function MyComponent() {
         </>
       </GoogleMap>
 
-      {linkToShare ? <BSModal linkToShare={linkToShare} />: <></>}
+      {linkToShare && userType ?
+        <BSModal
+          linkToShare={linkToShare}
+          showModal={userType === 'sender'} />
+      :
+        <></>}
     </>
   ) : <></>
 }

@@ -3,8 +3,8 @@ import imgLink from './link.png';
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
-function BSModal({linkToShare}) {
-  const [show, setShow] = useState(true);
+function BSModal({ linkToShare, showModal = true }) {
+  const [show, setShow] = useState(showModal);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
