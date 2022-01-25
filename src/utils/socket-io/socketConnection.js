@@ -21,7 +21,9 @@ function socketConnection(type = 'sender', roomId, url = 'http://localhost:3001'
     });
 
     socket.on('roomId', (clientObj) => {
-      console.log(`http://localhost:3000/map/?roomId=${clientObj.roomId}`);
+      const localUrl = window.location.href;
+
+      console.log(`${localUrl}?roomId=${clientObj.roomId}`);
       startTrackingPosition(socket, clientObj);
     });
   });

@@ -5,7 +5,6 @@ import Home from './pages/Home/home';
 import HomeFooterDesing from './pages/Home/HomeFooterDesing/homeFooterDesing';
 import HomeCenterButtonDesign from './pages/Home/HomeCenterButtonDesign/homeCenterButtonDesign';
 import reportWebVitals from './reportWebVitals';
-import Test from './pages/test';
 
 import Map from './pages/GoogleMaps/map';
 
