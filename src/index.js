@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home/home';
 import HomeFooterDesing from './pages/Home/HomeFooterDesing/homeFooterDesing';
 import HomeCenterButtonDesign from './pages/Home/HomeCenterButtonDesign/homeCenterButtonDesign';

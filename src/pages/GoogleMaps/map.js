@@ -1,6 +1,7 @@
 import React from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import CustomMarker from './customMarker';
+import BSModal from '../Modal/modal';
 
 import identifyUserType from '../../utils/identifyUserType';
 
@@ -36,6 +37,7 @@ function MyComponent() {
   }, [])
 
   return isLoaded ? (
+    <>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -48,6 +50,9 @@ function MyComponent() {
           {socketInstance ? <CustomMarker socketInstance={socketInstance}/>: <></>}
         </>
       </GoogleMap>
+
+      <BSModal linkToShare="HEllow"/>
+    </>
   ) : <></>
 }
 

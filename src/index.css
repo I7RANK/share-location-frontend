@@ -1,5 +1,6 @@
 :root {
     --primary-color: #1cd0c5;
+    --primary-color-hover: #15a59c;
     --bg-primary: #303030;
     --bg-secondary: #262626;
     --font-color-secondary: #c2c2c2;
@@ -12,7 +13,7 @@
 }
 
 body {
-    background: var(--bg-primary);
+    background: var(--bg-primary) !important;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
