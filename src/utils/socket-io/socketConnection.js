@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 
 // type = sender || receiver
-function socketConnection(type = 'sender', roomId, url = 'http://www.sharelocation.live:3001') {
+function socketConnection(type = 'sender', roomId, url = 'https://www.sharelocation.live:3000') {
   const socket = io(url);
 
   socket.on("connect", () => {
