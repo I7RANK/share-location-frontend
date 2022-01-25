@@ -9,11 +9,11 @@ import Test from './pages/test';
 
 import Map from './pages/GoogleMaps/map';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path='/' element={<Home />}>
           <Route path='/' element={
@@ -26,7 +26,7 @@ ReactDOM.render(
           <Route path='/map' element={<Map />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
