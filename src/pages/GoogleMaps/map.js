@@ -27,13 +27,16 @@ function MyComponent() {
   // eslint-disable-next-line no-unused-vars
   const [mapInstance, setMapInstance] = React.useState(null);
   const [socketInstance, setSocketInstance] = React.useState(null);
+  // eslint-disable-next-line no-unused-vars
+  const [userType, setUserType] = React.useState(null);
   const [linkToShare, setLinkToShare] = React.useState(null);
 
   const onLoad = React.useCallback(function callback(mapInstance) {
     setMapInstance(mapInstance);
 
-    const socket = identifyUserType();
+    const { socket, userType } = identifyUserType();
 
+    setUserType(userType);
     setSocketInstance(socket);
 
     socket.on('roomId', (clientObj) => {
