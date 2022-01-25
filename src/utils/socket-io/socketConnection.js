@@ -19,35 +19,9 @@ function socketConnection(type = 'sender', roomId, url = 'http://localhost:3001'
       console.log('new private message');
       console.log(messageObj);
     });
-
-    socket.on('roomId', (clientObj) => {
-      const localUrl = window.location.href;
-
-      console.log(`${localUrl}?roomId=${clientObj.roomId}`);
-      startTrackingPosition(socket, clientObj);
-    });
   });
 
   return socket;
-}
-
-function startTrackingPosition(socket, clientObj) {
-  if (navigator.geolocation) {
-    // watch for user movement
-    navigator.geolocation.watchPosition(function (position) {
-      var lat = position.coords.latitude;
-      var lng = position.coords.longitude;
-
-      const obj = {...clientObj};
-
-      obj['lat'] = lat;
-      obj['lng'] = lng;
-
-      socket.emit('toRoadsAPI', obj);
-    });
-  } else {
-    alert("Geolocation is not supported by this browser.");
-  }
 }
 
 export default socketConnection;

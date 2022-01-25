@@ -4,6 +4,7 @@ import CustomMarker from './customMarker';
 import BSModal from '../Modal/modal';
 
 import identifyUserType from '../../utils/identifyUserType';
+import startTrackingPosition from '../../utils/startTrackingPosition';
 
 const containerStyle = {
   width: '100vw',
@@ -26,10 +27,21 @@ function MyComponent() {
   // eslint-disable-next-line no-unused-vars
   const [mapInstance, setMapInstance] = React.useState(null);
   const [socketInstance, setSocketInstance] = React.useState(null);
+  const [linkToShare, setLinkToShare] = React.useState(null);
 
   const onLoad = React.useCallback(function callback(mapInstance) {
     setMapInstance(mapInstance);
-    setSocketInstance(identifyUserType());
+
+    const socket = identifyUserType();
+
+    setSocketInstance(socket);
+
+    socket.on('roomId', (clientObj) => {
+      const localUrl = window.location.href;
+
+      setLinkToShare(`${localUrl}?roomId=${clientObj.roomId}`);
+      startTrackingPosition(socket, clientObj);
+    });
   }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
@@ -51,7 +63,7 @@ function MyComponent() {
         </>
       </GoogleMap>
 
-      <BSModal linkToShare="HEllow"/>
+      {linkToShare ? <BSModal linkToShare={linkToShare} />: <></>}
     </>
   ) : <></>
 }
