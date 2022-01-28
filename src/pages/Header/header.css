@@ -82,6 +82,16 @@ header span {
     cursor: pointer;
 }
 
+.main-navbar ul li a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+}
+
 .main-navbar ul li:hover {
     background: var(--bg-secondary);
     color: var(--primary-color);

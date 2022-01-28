@@ -13,9 +13,8 @@ function Header() {
 
                 <nav className='main-navbar'>
                     <ul>
-                        <li>Contact me</li>
-                        <li>About ShareLocation</li>
-                        <li>GitHub repo</li>
+                        <li><a href='https://www.linkedin.com/in/francisco-guzman-herrera' target='_blank' rel='noreferrer'>Contact me</a></li>
+                        <li><a href='https://github.com/I7RANK/share-location_frontend' target='_blank' rel='noreferrer'>GitHub repo</a></li>
                     </ul>
                 </nav>
             </div>
