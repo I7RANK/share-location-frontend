@@ -16,7 +16,7 @@ const center = {
   lng: -74.7960913
 };
 
-const zoom = 13;
+const zoom = 5;
 
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
@@ -24,6 +24,8 @@ function MyComponent() {
     googleMapsApiKey: "AIzaSyDePPdWErHwr3klW_CxPvpMuB_OX7vMKtA"
   });
 
+  const [mapCenter, setMapCenter] = React.useState([center]);
+  const [mapZoom, setMapZoom] = React.useState(zoom);
   // eslint-disable-next-line no-unused-vars
   const [mapInstance, setMapInstance] = React.useState(null);
   const [socketInstance, setSocketInstance] = React.useState(null);
@@ -45,6 +47,15 @@ function MyComponent() {
       const trackingLink = `${localUrl}?roomId=${clientObj.roomId}`;
 
       setLinkToShare(trackingLink);
+      if (navigator.geolocation) {
+        // watch for user movement
+        navigator.geolocation.getCurrentPosition(function (position) {
+          let lat = position.coords.latitude;
+          let lng = position.coords.longitude;
+          setMapCenter([{ lat, lng }]);
+          setMapZoom(18);
+        });
+      }
       startTrackingPosition(socket, clientObj);
 
       if (navigator.share) {
@@ -53,8 +64,8 @@ function MyComponent() {
           text: "Share this link so they can follow you",
           url: trackingLink
         })
-        .then(() => console.log('Successful share'))
-        .catch(error => console.log('Error sharing:', error));
+          .then(() => console.log('Successful share'))
+          .catch(error => console.log('Error sharing:', error));
       }
     });
   }, []);
@@ -67,14 +78,14 @@ function MyComponent() {
     <>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
-        zoom={zoom}
+        center={mapCenter[0]}
+        zoom={mapZoom}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
+        { /* Child components, such as markers, info windows, etc. */}
         <>
-          {socketInstance ? <CustomMarker socketInstance={socketInstance}/>: <></>}
+          {socketInstance ? <CustomMarker socketInstance={socketInstance} /> : <></>}
         </>
       </GoogleMap>
 
@@ -82,7 +93,7 @@ function MyComponent() {
         <BSModal
           linkToShare={linkToShare}
           /* showModal={userType === 'sender'} */ />
-      :
+        :
         <></>}
     </>
   ) : <></>
