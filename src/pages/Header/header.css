@@ -1,5 +1,10 @@
+:root {
+    --header-height: 55px;
+    --navbar-items: 2;  /* number of items in the navbar */
+}
+
 header {
-    height: 55px;
+    height: var(--header-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,6 +71,7 @@ header span {
     width: 100vw;
     overflow: hidden;
     transition: transform .3s ease;
+    z-index: 3;
 }
 
 .main-navbar ul {
@@ -75,7 +81,7 @@ header span {
 
 .main-navbar ul li {
     list-style: none;
-    height: 55px;
+    height: var(--header-height);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,6 +137,26 @@ header span {
     animation: main-navbar_show-out .3s ease-in;
 }
 
+.main-navbar-background {
+    background: var(--bg-primary);
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    height: calc(var(--header-height) * var(--navbar-items));
+    width: 0vw;
+    z-index: 2;
+}
+
+#navbar-control:checked~.main-navbar-background {
+    animation: main-navbar-background_show-in .18s linear;
+    height: calc(var(--header-height) * var(--navbar-items));
+    width: 100vw;
+}
+
+#navbar-control:not(:checked)~.main-navbar-background {
+    animation: main-navbar-background_show-out .3s linear;
+}
+
 @keyframes main-navbar_show-in {
     from {transform: translate(100%);}
     to {transform: translate(0%);}
@@ -139,4 +165,14 @@ header span {
 @keyframes main-navbar_show-out {
     from {transform: translate(0%);}
     to {transform: translate(-100%);}
+}
+
+@keyframes main-navbar-background_show-in {
+    from {height: 0;}
+    to {height: calc(var(--header-height) * var(--navbar-items));}
+}
+
+@keyframes main-navbar-background_show-out {
+    from {width: 100vw;}
+    to {width: 0;}
 }

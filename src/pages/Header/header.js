@@ -17,6 +17,8 @@ function Header() {
                         <li><a href='https://github.com/I7RANK/share-location_frontend' target='_blank' rel='noreferrer'>GitHub repo</a></li>
                     </ul>
                 </nav>
+
+                <div className='main-navbar-background'></div>
             </div>
         </header>
     );
