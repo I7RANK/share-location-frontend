@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Outlet } from 'react-router-dom';
+
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './pages/Home/home';
+import Header from './pages/Header/header';
 import reportWebVitals from './reportWebVitals';
 
 import Map from './pages/GoogleMaps/map';
@@ -13,7 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-        <Route path='/' element={<Home />}>
+        <Route path='/' element={<><Header /> <Outlet /></>}>
           <Route path='/' element={
             <>
             </>
