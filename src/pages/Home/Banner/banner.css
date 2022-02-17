@@ -1,0 +1,21 @@
+.banner-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.img-banner, .img-banner-shadow {
+    position: absolute;
+    left: 34vw;
+    top: 12.86vh;
+    width: 1736.35px;
+    height: 1178.42px;
+    transform: rotate(-56.31deg);
+}
+
+.img-banner-shadow {
+    box-shadow: inset 0px 0px 40px 20px rgba(0, 0, 0, 0.1);
+}

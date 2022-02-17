@@ -1,9 +1,10 @@
 import StartButton from "./StartButton/startButton";
+import Banner from "./Banner/banner";
 
 function Home() {
   return (
     <>
-      <StartButton />
+      <Banner />
     </>
   );
 }
