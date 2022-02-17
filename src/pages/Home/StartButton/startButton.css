@@ -1,0 +1,67 @@
+.start-button-content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 440px;
+    width: 440px;
+}
+
+.start-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-sizing: border-box;
+    height: 240px;
+    width: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 36px;
+    color: #fff;
+    z-index: 2;
+    transition: .3s;
+}
+
+.waves {
+    position: absolute;
+    box-sizing: border-box;
+    height: 240px;
+    width: 240px;
+    border-radius: 100%;
+    z-index: 1;
+    background: #fff;
+    transition: background-color 3s;
+    animation: waves-fade-out 4s ease-in infinite;
+}
+
+.start-button:hover {
+    color: #fff;
+    text-shadow: 0 0 3px #fff;
+}
+
+.start-button:hover ~ .wave-1,
+.start-button:hover ~ .wave-2,
+.start-button:hover ~ .wave-3 {
+    background: var(--primary-color);
+}
+
+.wave-2 {
+    animation-delay: 1s;
+}
+
+.wave-3 {
+    animation-delay: 2s;
+}
+
+@keyframes waves-fade-out {
+    0% {
+        transform: scale(100%);
+        opacity: 100%;
+    }
+    100% {
+        transform: scale(183%);
+        opacity: 0%;
+    }
+}
