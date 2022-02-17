@@ -1,0 +1,16 @@
+.description {
+  position: absolute;
+  width: 45.57vw;
+  height: 471px;
+  left: 85px;
+  top: 322px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 72px;
+  line-height: 84px;
+  display: flex;
+  align-items: center;
+
+  color: #464646;
+}
