@@ -3,7 +3,8 @@
   width: 45.57vw;
   height: 471px;
   left: 85px;
-  top: 322px;
+  top: 50%;
+  transform: translate(0, -50%);
 
   font-style: normal;
   font-weight: bold;
@@ -13,4 +14,5 @@
   align-items: center;
 
   color: #464646;
+  z-index: 3;
 }

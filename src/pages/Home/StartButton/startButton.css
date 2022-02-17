@@ -1,10 +1,14 @@
 .start-button-content {
     position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 60.57vw;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 440px;
     width: 440px;
+    z-index: 3;
 }
 
 .start-button {

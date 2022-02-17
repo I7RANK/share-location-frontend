@@ -1,3 +1,4 @@
+import './home.css';
 import StartButton from "./StartButton/startButton";
 import Banner from "./Banner/banner";
 import Description from "./Description/description";
@@ -5,8 +6,11 @@ import Description from "./Description/description";
 function Home() {
   return (
     <>
-      <Banner />
-      <Description />
+      <section className="home">
+        <StartButton />
+        <Banner />
+        <Description />
+      </section>
     </>
   );
 }
