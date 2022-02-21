@@ -19,3 +19,9 @@
 .img-banner-shadow {
     box-shadow: inset 0px 0px 40px 20px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 1024px) {
+    .img-banner, .img-banner-shadow {
+        left: 20vw;
+    }
+}

@@ -8,11 +8,19 @@
 
   font-style: normal;
   font-weight: bold;
-  font-size: 72px;
-  line-height: 84px;
+  font-size: 62px;
+  line-height: 74px;
   display: flex;
   align-items: center;
 
   color: #464646;
   z-index: 3;
+}
+
+@media (max-width: 1440px) {
+  .description {
+    font-size: 52px;
+    line-height: 64px;
+    left: 5%;
+  }
 }

@@ -69,3 +69,12 @@
         opacity: 0%;
     }
 }
+
+@media (max-width: 1440px) {
+    .start-button-content {
+        height: 380px;
+        width: 380px;
+        left: auto;
+        right: 5%;
+    }
+}
