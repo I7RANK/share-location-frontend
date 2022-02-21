@@ -4,6 +4,9 @@
     --bg-primary: #f1f1f1;
     --font-color-primary: #464646;
     --font-color-secondary: #bebebe;
+
+    --header-height: 55px;
+    --navbar-items: 2;  /* number of items in the navbar */
 }
 
 * {

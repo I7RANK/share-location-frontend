@@ -1,8 +1,3 @@
-:root {
-    --header-height: 55px;
-    --navbar-items: 2;  /* number of items in the navbar */
-}
-
 header {
     height: var(--header-height);
     display: flex;
