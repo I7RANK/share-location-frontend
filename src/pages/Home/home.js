@@ -7,9 +7,9 @@ function Home() {
   return (
     <>
       <section className="home">
+        <Description />
         <StartButton />
         <Banner />
-        <Description />
       </section>
     </>
   );

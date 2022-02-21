@@ -83,6 +83,37 @@
     .start-button-content {
         position: relative;
         right: auto;
-        transform: translate(0, -125%);
+        top: auto;
+        transform: translate(0, 50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .start-button-content {
+        height: 220px;
+        width: 220px;
+        left: auto;
+        right: auto;
+        transform: translate(0, 75%);
+    }
+
+    .start-button, .waves {
+        height: 160px;
+        width: 160px;
+    }
+}
+
+@media (max-width: 320px) {
+    .start-button-content {
+        height: 220px;
+        width: 220px;
+        left: auto;
+        right: auto;
+        transform: translate(0, 75%);
+    }
+
+    .start-button, .waves {
+        height: 120px;
+        width: 120px;
     }
 }

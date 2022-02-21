@@ -31,3 +31,14 @@
     transform: none;
   }
 }
+
+@media (max-width: 480px) {
+  .description {
+    position: absolute;
+    top: var(--header-height);
+    bottom: auto;
+    font-size: 36px;
+    line-height: normal;
+    max-height: 299px;
+  }
+}
