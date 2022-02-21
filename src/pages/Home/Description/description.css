@@ -24,3 +24,10 @@
     left: 5%;
   }
 }
+
+@media (max-width: 768px) {
+  .description {
+    top: calc(var(--header-height) + 2rem);
+    transform: none;
+  }
+}

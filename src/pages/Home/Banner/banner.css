@@ -25,3 +25,14 @@
         left: 20vw;
     }
 }
+
+@media (max-width: 768px) {
+    .img-banner, .img-banner-shadow {
+        left: -46.48vw;
+        top: auto;
+        bottom: -30vh;
+        transform: rotate(-19.35deg);
+        width: 1736.35px;
+        height: 1178.42px;
+    }
+}
