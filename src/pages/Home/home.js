@@ -1,11 +1,16 @@
-import Header from "../Header/header";
-import { Outlet } from 'react-router-dom';
+import './home.css';
+import StartButton from "./StartButton/startButton";
+import Banner from "./Banner/banner";
+import Description from "./Description/description";
 
 function Home() {
   return (
     <>
-      <Header />
-      <Outlet />
+      <section className="home">
+        <Description />
+        <StartButton />
+        <Banner />
+      </section>
     </>
   );
 }

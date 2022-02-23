@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Outlet } from 'react-router-dom';
+
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './pages/Home/home';
-import HomeFooterDesing from './pages/Home/HomeFooterDesing/homeFooterDesing';
-import HomeCenterButtonDesign from './pages/Home/HomeCenterButtonDesign/homeCenterButtonDesign';
+import Header from './pages/Header/header';
 import reportWebVitals from './reportWebVitals';
+import Home from './pages/Home/home';
 
 import Map from './pages/GoogleMaps/map';
 
@@ -15,11 +16,10 @@ ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-        <Route path='/' element={<Home />}>
+        <Route path='/' element={<><Header /> <Outlet /></>}>
           <Route path='/' element={
             <>
-              <HomeCenterButtonDesign />
-              <HomeFooterDesing />
+              <Home />
             </>
           } />
           <Route path='/map' element={<Map />} />
