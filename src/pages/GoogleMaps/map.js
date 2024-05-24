@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import CustomMarker from './customMarker';
 import BSModal from '../Modal/modal';
@@ -8,12 +8,12 @@ import startTrackingPosition from '../../utils/startTrackingPosition';
 
 const containerStyle = {
   width: '100vw',
-  height: 'calc(100vh - 55px)'
+  height: 'calc(100vh - 55px)',
 };
 
 const center = {
   lat: 10.9797595,
-  lng: -74.7960913
+  lng: -74.7960913,
 };
 
 const zoom = 5;
@@ -21,7 +21,7 @@ const zoom = 5;
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyDePPdWErHwr3klW_CxPvpMuB_OX7vMKtA"
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
 
   const [mapCenter, setMapCenter] = React.useState([center]);
@@ -57,25 +57,16 @@ function MyComponent() {
         });
       }
       startTrackingPosition(socket, clientObj);
-
-      if (navigator.share) {
-        navigator.share({
-          title: document.title,
-          text: "Share this link so they can follow you",
-          url: trackingLink
-        })
-          .then(() => console.log('Successful share'))
-          .catch(error => console.log('Error sharing:', error));
-      }
     });
   }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
-    setMapInstance(null)
-  }, [])
+    setMapInstance(null);
+  }, []);
 
   return isLoaded ? (
     <>
+      user type:{userType}
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapCenter[0]}
@@ -83,20 +74,27 @@ function MyComponent() {
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        { /* Child components, such as markers, info windows, etc. */}
+        {/* Child components, such as markers, info windows, etc. */}
         <>
-          {socketInstance ? <CustomMarker socketInstance={socketInstance} /> : <></>}
+          {socketInstance ? (
+            <CustomMarker socketInstance={socketInstance} />
+          ) : (
+            <></>
+          )}
         </>
       </GoogleMap>
-
-      {linkToShare && userType ?
+      {linkToShare ? (
         <BSModal
           linkToShare={linkToShare}
-          /* showModal={userType === 'sender'} */ />
-        :
-        <></>}
+          /* showModal={userType === 'sender'} */
+        />
+      ) : (
+        <></>
+      )}
     </>
-  ) : <></>
+  ) : (
+    <></>
+  );
 }
 
-export default React.memo(MyComponent)
+export default React.memo(MyComponent);

@@ -1,17 +1,17 @@
-import { io } from "socket.io-client";
+import { io } from 'socket.io-client';
 
 // type = sender || receiver
-function socketConnection(type = 'sender', roomId, url = 'https://www.sharelocation.live:3000') {
-  const socket = io(url);
+function socketConnection(type, roomId) {
+  const socket = io(process.env.REACT_APP_BACKEND_URL);
 
-  socket.on("connect", () => {
+  socket.on('connect', () => {
     console.log("I'm connected:", socket.id);
 
     const obj = {
       socketId: socket.id,
       type,
-      roomId
-    }
+      roomId,
+    };
 
     socket.emit('lobby', obj);
 
